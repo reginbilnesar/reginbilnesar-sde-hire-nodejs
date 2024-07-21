@@ -1,0 +1,44 @@
+/* Form Styles */
+form {
+  flex: 1;
+  margin: 20px;
+  padding: 20px;
+  background-color: #f9f9f9; /* Light background color */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+}
+
+form h1 {
+  color: #bd8c7d; /* Match the navbar color */
+}
+
+form label {
+  display: block;
+  margin-bottom: 10px;
+  color: #444; /* Darker text color for labels */
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="radio"] {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form button[type="submit"] {
+  background-color: #bd8c7d;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+form button[type="submit"]:hover {
+  background-color: #a36f5b;
+}

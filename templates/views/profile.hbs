@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+     {{>sidebar}}
+      <form action="/profile" method="post">
+  <table id="userTable">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Father's Name</th>
+        <th>Mother's Name</th>
+        <th>Gender</th>
+        <th>Phone Number</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>PU Marks (%)</th>
+        <th>course</th>
+        <th>Date of Birth</th>
+        <th>Profile image</th>
+      </tr>
+    </thead>
+    <tbody>
+        {{>_showstudents}}
+      </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="12">
+         {{!--  <a class="fcc-btn" href="/newuser.hbs">New Student</a> --}}
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+/* Course Page Styles */
+.course-content {
+  margin-left: 220px; /* Adjust margin to accommodate sidebar */
+  padding: 20px;
+}
+
+/* Adjust any existing styles to fit with the sidebar and navbar */
+.course-heading {
+  margin-bottom: 20px;
+}
+
+.course-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.course-module {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1080px) {
+  .course-content {
+    margin-left: 0; /* Remove margin for small screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .course-content {
+    padding: 10px; /* Adjust padding for small screens */
+  }
+}

@@ -1,0 +1,33 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delete Confirmation</title>
+    <link rel="stylesheet" href="/css/confirmdelete.css" />
+  </head>
+  <body>
+    {{>sidebar}}
+    <div class="confirmation-box">
+      <h1>Delete Confirmation</h1>
+      <p>Are you sure you want to delete
+        {{user.firstname}}
+        {{user.lastname}}?</p>
+      <form action="/delete/{{user._id}}/confirm" method="post">
+        <input type="hidden" name="firstname" value="{{user.firstname}}" />
+        <input type="hidden" name="lastname" value="{{user.lastname}}" />
+        <button
+          type="submit"
+          name="confirmation"
+          value="yes"
+          class="btn-delete"
+        >Yes, delete</button>
+        <button
+          type="submit"
+          name="confirmation"
+          value="no"
+          class="btn-cancel"
+        >No, cancel</button>
+      </form>
+    </div>
+  </body>
+</html>

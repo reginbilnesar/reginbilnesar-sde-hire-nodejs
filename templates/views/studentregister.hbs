@@ -1,0 +1,95 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Registration</title>
+    <link rel="stylesheet" href="css/studentregister.css" />
+  </head>
+  <body>
+    <h1>Student Registration</h1>
+    <form action="/Submit" method="post" enctype="multipart/form-data">
+      {{#if messages.error}}
+        <div class="alert alert-danger">
+          {{messages.error}}
+        </div>
+      {{/if}}
+
+      <div class="form-group">
+        <label for="firstname">First Name:</label>
+        <input type="text" name="firstname" id="firstname" required />
+      </div>
+      <div class="form-group">
+        <label for="lastname">Last Name:</label>
+        <input type="text" name="lastname" id="lastname" required />
+      </div>
+      <div class="form-group">
+        <label for="fathername">Father's Name:</label>
+        <input type="text" name="fathername" id="fathername" required />
+      </div>
+      <div class="form-group">
+        <label for="mothername">Mother's Name:</label>
+        <input type="text" name="mothername" id="mothername" required />
+      </div>
+      <div class="form-group">
+        <label for="gender">Gender:</label>
+        <div>
+          <input type="radio" name="gender" id="male" value="male" required />
+          <label for="male">Male</label>
+          <input
+            type="radio"
+            name="gender"
+            id="female"
+            value="female"
+            required
+          />
+          <label for="female">Female</label>
+          <input type="radio" name="gender" id="other" value="other" required />
+          <label for="other">Other</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="phoneno">Phone Number:</label>
+        <input type="integer" name="phoneno" id="phoneno" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required />
+      </div>
+      <div class="form-group">
+        <label for="address">Address:</label>
+        <textarea name="address" id="address" rows="4" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="profileImage">Profile Image:</label>
+        <input type="file" name="profileImage" id="profileImage" />
+      </div>
+      <div class="form-group">
+        <label for="pumarks">PU Marks (%):</label>
+        <input
+          type="number"
+          name="pumarks"
+          id="pumarks"
+          min="0"
+          max="100"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="course">Course:</label>
+        <select name="course" id="course" required>
+          <option value="">Select Course</option>
+          <option value="BSc Computer Science">BSc Computer Science</option>
+          <option value="BSc Mathematics">BSc Mathematics</option>
+          <option value="BSc Physics">BSc Physics</option>
+          <option value="BSc Biology">BSc Biology</option>
+          <option value="BSc Environmental Science">BSc Environmental Science</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="dob">Date of Birth:</label>
+        <input type="date" name="dob" id="dob" required />
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>

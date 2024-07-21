@@ -1,0 +1,32 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <tbody>
+      {{#each Susers}}
+        <tr>
+          <td>{{this.firstname}}</td>
+          <td>{{this.lastname}}</td>
+          <td>{{this.fathername}}</td>
+          <td>{{this.mothername}}</td>
+          <td>{{this.gender}}</td>
+          <td>{{this.phoneno}}</td>
+          <td>{{this.email}}</td>
+          <td>{{this.address}}</td>
+          <td>{{this.pumarks}}</td>
+          <td>{{this.course}}</td>
+          <td>{{this.dob}}</td>
+          <td>
+            {{!-- <img src="{{this.profileImage}}" width="100" /> --}}
+
+            <img src="/uploads/{{this.profileImage}}" width="100" /></td>
+
+        </tr>
+      {{/each}}
+    </tbody>
+
+  </body>
+</html>

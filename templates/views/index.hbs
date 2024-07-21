@@ -1,0 +1,119 @@
+{{!-- <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Homepage</title>
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Welcome, Student!</h1>
+        {{#if messages.success}}
+          <div class="alert alert-success">
+            {{messages.success}}
+          </div>
+        {{/if}}
+      </header>
+
+      <nav>
+        <ul>
+          <div class="hover">
+            <li><a href="/register.hbs">register</a></li>
+            <li><a href="/login.hbs">login</a></li>
+          </div>
+        </ul>
+      </nav>
+
+      <main>
+        <section class="hero">
+          <h2>Explore Your Learning Journey</h2>
+          <p>
+            Find courses, track your progress, and achieve your academic goals.
+          </p>
+        </section>
+        <section class="features">
+          <div class="feature">
+            <h3>Profile</h3>
+            <p>Update your personal information and preferences.</p>
+          </div>
+          <div class="feature">
+            <h3>Courses</h3>
+            <p>Discover new courses and enroll in ones that interest you.</p>
+          </div>
+          <div class="feature">
+            <h3>Grades</h3>
+            <p>View your grades and monitor your academic performance.</p>
+          </div>
+          <div class="feature">
+            <h3>Settings</h3>
+            <p>Customize your account settings and preferences.</p>
+          </div>
+        </section>
+      </main>
+      <footer>
+        <p>&copy; 2024 Student Homepage. All rights reserved.</p>
+      </footer>
+    </div>
+  </body>
+</html> --}}
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Homepage</title>
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Welcome, Student!</h1>
+        {{#if messages.success}}
+          <div class="alert alert-success">
+            {{messages.success}}
+          </div>
+        {{/if}}
+      </header>
+
+      <nav>
+        <ul>
+          <li><a href="/register">Register</a></li>
+          <li><a href="/studentregister">Student register</a></li>
+          <li><a href="/login">Login</a></li>
+        </ul>
+      </nav>
+
+      <main>
+        <section class="hero">
+          <h2>Explore Your Learning Journey</h2>
+          <p>Find courses, track your progress, and achieve your academic goals.</p>
+        </section>
+        <section class="features">
+          <div class="feature">
+            <h3>Profile</h3>
+            <p>Update your personal information and preferences.</p>
+          </div>
+          <div class="feature">
+            <h3>Courses</h3>
+            <p>Discover new courses and enroll in ones that interest you.</p>
+          </div>
+          <div class="feature">
+            <h3>Grades</h3>
+            <p>View your grades and monitor your academic performance.</p>
+          </div>
+          <div class="feature">
+            <h3>Settings</h3>
+            <p>Customize your account settings and preferences.</p>
+
+          </div>
+        </section>
+        <a href="./error.jsx">error</a>
+      </main>
+      <footer>
+        <p>&copy; 2024 Homepage. All rights reserved.</p>
+
+      </footer>
+    </div>
+  </body>
+</html>

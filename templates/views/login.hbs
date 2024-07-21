@@ -1,0 +1,41 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login or Sign up</title>
+    <link rel="stylesheet" href="css/login.css" />
+  </head>
+  <body>
+ 
+    <main>
+       {{#if messages.error}}
+            <div class="error-message">{{ messages.error }}</div>
+        {{/if}}
+      <div class="row">
+        <div class="colm-logo">
+        {{!--   <img
+            src="https://img.freepik.com/free-vector/book-shelves-dtcorative-colorful-icon-poster_1284-6714.jpg?w=360&t=st=1710223946~exp=1710224546~hmac=602c06acfffee7414daad0e18ee87101318c2b51d74524d5dd0a81eaaff973dd"
+            alt="Logo"
+          /> --}}
+          <img src="https://imgs.search.brave.com/lJlft6D4qFKJHvsTZ-olQD4gk6nVkt_zXLfCzJ9fEds/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9vdWNo/LWNkbjIuaWNvbnM4/LmNvbS93SHREQ2ZI/Ny14c1NmVXc2N3pw/YkVURjlWQ1Z0R29P/RmpyM3ZLbG8tQ2t3/L3JzOmZpdDozNjg6/NTA3L2N6TTZMeTlw/WTI5dWN6Z3UvYjNW/amFDMXdjbTlrTG1G/ei9jMlYwY3k5d2Jt/Y3ZNamd2L00yTTRN/REExT0dFdE1UUm0v/TnkwMFl6SmlMVGs1/TnpVdC9OemN3TTJO/bU16Vm1NMkkxL0xu/QnVady5wbmc" alt="">
+          
+        </div>
+       
+        <div class="colm-form">
+          <div class="form-container">
+            <form action="./login.hbs" method="post">
+            <input type="email" placeholder="Email address or phone number" required name="email"/><br><br>
+            <input type="password" placeholder="Password" required name="password"/><br><br>
+            <button class="btn-login" type="submit" value="Register ">Login</button><br><br>
+            <a href="#">Forgotten password?</a><br><br>
+           </form>
+      </div>
+    </main>
+    <footer>
+      <div class="footer-contents">
+        <small>Student Login © 2024</small>
+      </div>
+    </footer>
+  </body>
+</html>

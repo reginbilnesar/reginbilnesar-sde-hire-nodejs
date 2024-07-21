@@ -1,0 +1,40 @@
+/* Update button styles */
+.link-icon {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  margin-right: 10px;
+  margin-bottom: 6px;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #fff;
+  text-decoration: none;
+  background-color: #e08248;
+  transition: 0.3s;
+}
+
+.link-icon:hover {
+  background-color: #1b7332;
+}
+
+.link-icon .edit {
+  margin-right: 5px;
+}
+
+.delete-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #fff;
+  text-decoration: none;
+  background-color: #ce8c63;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}

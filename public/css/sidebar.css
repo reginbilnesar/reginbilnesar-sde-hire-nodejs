@@ -1,0 +1,125 @@
+* Add styles for the navigation bar */ .navbar {
+  background-color: #bd8c7d;
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.navbar h1 {
+  margin: 0;
+}
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+.navbar li {
+  margin-right: 20px;
+}
+.navbar a {
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.3s;
+}
+.navbar a:hover {
+  color: #ccc;
+}
+
+/* Add styles for the container */
+.container {
+  display: flex;
+  height: 100vh;
+  overflow-x: auto;
+}
+
+/* Add styles for the sidebar */
+.sidebar {
+  width: 200px;
+  background-color: #bd8c7d;
+  color: #333;
+  padding: 20px;
+  overflow-y: auto;
+  font-size: 1.3rem;
+}
+.sidebar h2 {
+  margin-top: 0;
+}
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+.sidebar li {
+  margin-bottom: 20px;
+}
+.sidebar a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  padding: 10px;
+  transition: 0.3s;
+}
+.sidebar a:hover {
+  color: #ccc;
+  background-color: #49494b;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1080px) {
+  .container {
+    flex-direction: row;
+  }
+
+  .sidebar {
+    width: 100%; /* Make the sidebar full width */
+    padding: 10px; /* Adjust padding */
+  }
+
+  .sidebar ul {
+    flex-direction: row; /* Change direction to column for small screens */
+    justify-content: flex-start; /* Align items to the top */
+  }
+
+  .sidebar li {
+    margin-left: 0; /* Remove left margin */
+    margin-top: 10px; /* Add top margin for separation */
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Change container to column layout for small screens */
+  }
+
+  .sidebar {
+    width: 100%; /* Make the sidebar full width */
+    padding: 10px; /* Adjust padding */
+  }
+
+  .sidebar ul {
+    flex-direction: column; /* Change direction to column for small screens */
+    justify-content: flex-start; /* Align items to the top */
+  }
+
+  .sidebar li {
+    margin: 0; /* Remove margins */
+    margin-top: 10px; /* Add top margin for separation */
+  }
+
+  .navbar ul {
+    flex-direction: column; /* Change direction to column for small screens */
+    align-items: flex-start; /* Align items to the start */
+  }
+
+  .navbar li {
+    margin: 0; /* Remove margins */
+    margin-bottom: 10px; /* Add bottom margin for separation */
+  }
+
+  .navbar {
+    padding: 10px; /* Adjust padding */
+  }
+}

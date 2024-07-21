@@ -1,0 +1,50 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/show.css" />
+  </head>
+  <body>
+
+    {{#each users}}
+      <style>
+        /* Style for link icons */ .link-icon { text-decoration: none; color:
+        #eeee0c; margin-right: 10px; }
+
+      </style>
+
+      <tr>
+
+        <td>{{this.firstname}}</td>
+        <td>{{this.lastname}}</td>
+        <td>{{this.email}}</td>
+        <td>{{this.gender}}</td>
+        <td><!-- Update link with icon -->
+          <a
+            href="/updateuser?id={{this._id}}"
+            class="link-icon"
+            title="Update"
+          >
+            <i class="edit"></i>
+            Update
+          </a>
+
+          {{! delete }}
+
+          <form
+            action="/api/users/{{this._id}}?_method=DELETE"
+            method="post"
+            class="position-relative"
+          >
+            <button type="submit" id="sub" class="delete-btn">
+              Delete</button>
+          </form>
+
+        </td>
+      </tr>
+    {{/each}}
+
+  </body>
+</html>
