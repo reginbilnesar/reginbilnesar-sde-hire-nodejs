@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  node:
+    image: node:16
+    container_name: node_app
+    working_dir: /usr/src/app
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "3000:3000" # update to match your app's port
+    depends_on:
+      - mongo
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/my_database # use service name 'mongo' instead of 'localhost'
+    command: ["npm", "run", "dev"]
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo_db
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:

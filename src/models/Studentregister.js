@@ -11,16 +11,6 @@ const studentSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
-  fathername: {
-    type: String,
-    required: true,
-    trim: true,
-  },
-  mothername: {
-    type: String,
-    required: true,
-    trim: true,
-  },
   gender: {
     type: String, // Can be 'male', 'female', 'other' or adjust based on your needs
     required: true,
@@ -41,26 +31,6 @@ const studentSchema = new mongoose.Schema({
     type: String,
     required: true,
     trim: true, // Removes leading/trailing whitespace
-  },
-
-  profileImage: {
-    type: String, // Path to uploaded image file (optional)
-  },
-  pumarks: {
-    type: Number,
-    required: true,
-    min: 0,
-    max: 100,
-  },
-  course: {
-    type: String,
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Course",
-    required: true,
-  },
-  dob: {
-    type: Date,
-    required: true,
   },
 });
 

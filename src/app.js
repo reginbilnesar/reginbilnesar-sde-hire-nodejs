@@ -182,14 +182,8 @@ app.post("/Submit", upload.single("profileImage"), async (req, res) => {
     if (
       !req.body.firstname ||
       !req.body.lastname ||
-      !req.body.fathername ||
-      !req.body.mothername ||
       !req.body.gender ||
-      !req.body.phoneno ||
-      !req.body.email ||
-      !req.body.course ||
-      !req.body.pumarks ||
-      !req.body.dob
+      !req.body.phoneno
     ) {
       return res.status(400).send("Please fill in all required fields");
     }
@@ -216,10 +210,6 @@ app.post("/Submit", upload.single("profileImage"), async (req, res) => {
       email: req.body.email,
       address: req.body.address,
       // password: hashedPassword (if applicable),
-      profileImage: req.file ? req.file.filename : null, // Store uploaded image path if exists
-      pumarks: req.body.pumarks,
-      course: req.body.course,
-      dob: req.body.dob,
     });
 
     const savedStudent = await newStudent.save();
@@ -256,15 +246,7 @@ app.post("/register", upload.single("profileImage"), async (req, res) => {
           password: password,
           confirmpassword: confirmpassword,
           gender: req.body.gender,
-          profileImage: req.file
-            ? req.file.path
-            : "/images/default-profile.png", // Store image path if uploaded
         });
-        if (req.file) {
-          console.log("Image uploaded successfully:", req.file);
-        } else {
-          console.log("No image uploaded");
-        }
 
         const registered = await newUser.save();
         req.flash("success", "User registered successfully");

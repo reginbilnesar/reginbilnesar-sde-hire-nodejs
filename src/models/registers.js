@@ -32,11 +32,6 @@ const studentSchema = new mongoose.Schema({
     required: true,
   },
   profileImage: { type: String }, // Store the image path or URL
-  fathername: { type: String, required: true },
-  mothername: { type: String, required: true },
-  phoneno: { type: Number, required: true },
-  dob: { type: Date, required: true },
-  pumarks: { type: Number, required: true },
 
   tokens: [
     {
