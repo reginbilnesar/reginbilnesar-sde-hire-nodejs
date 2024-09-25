@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "publishConfig": {
+    "registry": "http://65.2.186.152:8081/repository/nodejs-repo/"
+  },
   "scripts": {
     "sonar": "node sonar-project.js",
     "test": "echo \"Error: no test specified\" && exit 1",
