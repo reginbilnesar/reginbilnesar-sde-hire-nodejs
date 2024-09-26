@@ -8,11 +8,11 @@ services:
     volumes:
       - .:/usr/src/app
     ports:
-      - "3000:3000" # update to match your app's port
+      - "3000:3000"
     depends_on:
       - mongo
     environment:
-      - MONGO_URI=mongodb://mongo:27017/my_database # use service name 'mongo' instead of 'localhost'
+      - MONGO_URI=mongodb://mongo:27017/my_database
     command: ["npm", "run", "dev"]
 
   mongo:
