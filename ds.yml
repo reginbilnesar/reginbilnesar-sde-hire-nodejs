@@ -24,9 +24,15 @@ spec:
               name: mongodb
           env:
             - name: MONGO_INITDB_ROOT_USERNAME
-              value: "jain@gmail.com" # Ensure this matches the connection string in the Node.js app
+              valueFrom:
+                secretKeyRef:
+                  name: mongo-secret
+                  key: username
             - name: MONGO_INITDB_ROOT_PASSWORD
-              value: "Jain@2001" # Ensure this matches the connection string in the Node.js app
+              valueFrom:
+                secretKeyRef:
+                  name: mongo-secret
+                  key: password
             - name: MONGO_INITDB_DATABASE
               value: "my_database"
 
@@ -68,7 +74,17 @@ spec:
             - containerPort: 8080
           env:
             - name: SPRING_DATA_MONGODB_URI
-              value: mongodb://jain@gmail.com:Jain@2001@mongodb-service:27017/my_database?authSource=admin # Updated URI
+              valueFrom:
+                secretKeyRef:
+                  name: mongo-secret
+                  key: username
+            - name: SPRING_DATA_MONGODB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mongo-secret
+                  key: password
+            - name: SPRING_DATA_MONGODB_DATABASE
+              value: "my_database"
 
 ---
 # Node.js Application Service
@@ -84,3 +100,15 @@ spec:
       targetPort: 8080
   selector:
     app: nodejsapp
+
+---
+# Secret
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mongo-secret
+  namespace: webapps
+type: Opaque
+data:
+  username: amFpbkBnbWFpbC5jb20= # base64 encoded 'jain@gmail.com'
+  password: SmFpbkAyMDAx # base64 encoded 'Jain@2001'

@@ -1,5 +1,0 @@
-spring:
-  data:
-    mongodb:
-    uri: mongodb://root:Test@123@mongodb-service:27017/my_database?authSource=admin
-    database: my_database
