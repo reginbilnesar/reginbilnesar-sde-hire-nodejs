@@ -1,10 +1,11 @@
----
 # MongoDB Deployment
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mongodb
+  namespace: webapps # Make sure you're using the correct namespace
 spec:
+  replicas: 1 # You may adjust this based on your needs
   selector:
     matchLabels:
       app: mongodb
@@ -23,29 +24,33 @@ spec:
               name: mongodb
           env:
             - name: MONGO_INITDB_ROOT_USERNAME
-              value: "jain@gmail.com"
+              value: "jain@gmail.com" # Ensure this matches the connection string in the Node.js app
             - name: MONGO_INITDB_ROOT_PASSWORD
-              value: "Jain@2001"
+              value: "Jain@2001" # Ensure this matches the connection string in the Node.js app
             - name: MONGO_INITDB_DATABASE
               value: "my_database"
+
 ---
 # MongoDB Service
 apiVersion: v1
 kind: Service
 metadata:
   name: mongodb-service
+  namespace: webapps # Ensure this matches your deployment namespace
 spec:
   ports:
     - port: 27017
       targetPort: 27017
   selector:
     app: mongodb
+
 ---
-# nodejs Application Deployment
+# Node.js Application Deployment
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nodejsapp
+  namespace: webapps # Ensure this matches your deployment namespace
 spec:
   replicas: 1
   selector:
@@ -63,13 +68,15 @@ spec:
             - containerPort: 8080
           env:
             - name: SPRING_DATA_MONGODB_URI
-              value: mongodb://root:Test@123@mongodb-service:27017/my_database?authSource=admin
+              value: mongodb://jain@gmail.com:Jain@2001@mongodb-service:27017/my_database?authSource=admin # Updated URI
+
 ---
-# nodejsapp Application Service
+# Node.js Application Service
 apiVersion: v1
 kind: Service
 metadata:
   name: nodejsapp-service
+  namespace: webapps # Ensure this matches your deployment namespace
 spec:
   type: LoadBalancer
   ports:
