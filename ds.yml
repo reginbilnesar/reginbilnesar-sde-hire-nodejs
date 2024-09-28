@@ -65,11 +65,11 @@ spec:
             - name: SPRING_DATA_MONGODB_URI
               value: mongodb://root:Test@123@mongodb-service:27017/my_database?authSource=admin
 ---
-# Bank Application Service
+# nodejsapp Application Service
 apiVersion: v1
 kind: Service
 metadata:
-  name: bankapp-service
+  name: nodejsapp-service
 spec:
   type: LoadBalancer
   ports:
