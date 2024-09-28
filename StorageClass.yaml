@@ -2,6 +2,9 @@ kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
   name: mongodb-storageclass
-provisioner: kubernetes.io/no-provisioner
+provisioner: ebs.csi.aws.com
 volumeBindingMode: WaitForFirstConsumer
 allowVolumeExpansion: true
+parameters:
+  type: gp3 # or gp2 depending on the volume type you want
+  fsType: ext4

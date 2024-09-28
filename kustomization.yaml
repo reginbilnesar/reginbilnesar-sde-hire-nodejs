@@ -9,3 +9,4 @@ resources:
   - Service.yaml
   - StatefulSet.yaml
   - StorageClass.yaml
+  - deployment.yaml
