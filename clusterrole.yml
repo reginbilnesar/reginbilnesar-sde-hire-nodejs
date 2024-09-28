@@ -1,9 +1,0 @@
-# clusterrole.yml
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
-metadata:
-  name: role-admin
-rules:
-  - apiGroups: ["rbac.authorization.k8s.io"]
-    resources: ["roles", "rolebindings"]
-    verbs: ["get", "create", "update", "delete", "list", "watch"]

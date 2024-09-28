@@ -5,7 +5,7 @@ metadata:
   name: mongodb
   namespace: webapps # Make sure you're using the correct namespace
 spec:
-  replicas: 1 # You may adjust this based on your needs
+  replicas: 1 # Adjust this based on your needs
   selector:
     matchLabels:
       app: mongodb
@@ -74,11 +74,13 @@ spec:
             - containerPort: 8080
           env:
             - name: SPRING_DATA_MONGODB_URI
+              value: "mongodb://$(MONGO_INITDB_ROOT_USERNAME):$(MONGO_INITDB_ROOT_PASSWORD)@mongodb-service:27017/my_database?authSource=admin"
+            - name: MONGO_INITDB_ROOT_USERNAME
               valueFrom:
                 secretKeyRef:
                   name: mongo-secret
                   key: username
-            - name: SPRING_DATA_MONGODB_PASSWORD
+            - name: MONGO_INITDB_ROOT_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: mongo-secret
@@ -100,15 +102,3 @@ spec:
       targetPort: 8080
   selector:
     app: nodejsapp
-
----
-# Secret
-apiVersion: v1
-kind: Secret
-metadata:
-  name: mongo-secret
-  namespace: webapps
-type: Opaque
-data:
-  username: amFpbkBnbWFpbC5jb20= # base64 encoded 'jain@gmail.com'
-  password: SmFpbkAyMDAx # base64 encoded 'Jain@2001'
