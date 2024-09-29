@@ -15,7 +15,7 @@ spec:
         selector: mongodb-test
     spec:
       containers:
-        - name: mongodb-test
+        - name: mongodb
           image: mongo:4.0.8
           env:
             - name: MONGO_INITDB_ROOT_USERNAME_FILE
@@ -35,6 +35,33 @@ spec:
             - name: mongodb-data
               mountPath: /data/db
 
+          # Health checks
+          livenessProbe:
+            exec:
+              command:
+                - mongo
+                - --eval
+                - "db.runCommand({ ping: 1 })"
+            initialDelaySeconds: 30
+            periodSeconds: 10
+
+          readinessProbe:
+            exec:
+              command:
+                - mongo
+                - --eval
+                - "db.runCommand({ ping: 1 })"
+            initialDelaySeconds: 30
+            periodSeconds: 10
+
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+
         # Node.js application container
         - name: nodejsapp
           image: reginbilnesar/nodejsapp:latest
@@ -47,6 +74,29 @@ spec:
             - name: k8-test
               mountPath: /etc/k8-test
               readOnly: true
+
+          # Health checks for Node.js app
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 10
+
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 10
+
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
 
       nodeSelector:
         size: large
