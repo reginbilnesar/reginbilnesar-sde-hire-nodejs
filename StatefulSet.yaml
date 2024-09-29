@@ -35,16 +35,14 @@ spec:
             - name: mongodb-data
               mountPath: /data/db
 
-        # Adding Node.js application container
+        # Node.js application container
         - name: nodejsapp
           image: reginbilnesar/nodejsapp:latest
           ports:
             - containerPort: 8080
           env:
-            - name: MONGO_INITDB_ROOT_USERNAME_FILE
-              value: /etc/k8-test/admin/MONGO_ROOT_USERNAME
-            - name: MONGO_INITDB_ROOT_PASSWORD_FILE
-              value: /etc/k8-test/admin/MONGO_ROOT_PASSWORD
+            - name: MONGO_URI
+              value: "mongodb://$(MONGO_INITDB_ROOT_USERNAME_FILE):$(MONGO_INITDB_ROOT_PASSWORD_FILE)@mongodb-test:27017/my_database" # Adjust connection string as needed
           volumeMounts:
             - name: k8-test
               mountPath: /etc/k8-test
